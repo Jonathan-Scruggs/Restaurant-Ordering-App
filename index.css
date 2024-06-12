@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+} 
+
+.restaurant-banner {
+    margin: auto;
+    width: 600px;
+    height: 167px;
+    background-image: url(images/bg\ img.png);
+    background-position: center;
+    background-size: cover;
+    color: white;
+    /* Typography */
+    text-align: left;
+    font-family: Smythe,sans-serif;
+    /*Formatting/Layout*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    padding-left: 46px;
+    padding-top: 46px;
+    gap: 19px;
+}
+#restaurant-name {
+    margin:0;
+    width: 169.28px;
+    height: 24px;
+    opacity: 0px;
+    font-size: 39px;
+    font-weight: 400;
+    line-height: 24px;
+}
+#restaurant-slogan {
+    margin: 0;
+    width: 275.46px;
+    height: 8px;
+    font-size: 22.42px;
+    font-weight: 400;
+    line-height: 13.8px;
+    text-align: left;
+}
+
+
+/*Menu Related Stuff*/
+
+main{
+    margin: 0 auto;
+    padding: 67px 46px 53px 46px;
+    height: 994px;
+    width: 600px;
+}
+.menu-items{
+    display: flex;
+    row-gap: 45px;
+    flex-wrap: wrap;
+}
+.menu-item{
+    width: 508px;
+    height: 140px;
+    border: none;
+    border-bottom: 1px solid #D2D2D2 ;
+}
+.item-icon{
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "EmojiSymbols";
+    width: 70px;
+    height: 89px;
+    opacity: 72%;
+    font-size: 78.72px;
+    font-weight: 400;
+    line-height: 98.4px;
+    display: inline;
+    margin: 0;
+
+}
