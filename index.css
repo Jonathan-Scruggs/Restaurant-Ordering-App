@@ -3,6 +3,7 @@
 }
 body {
     padding: 0;
+    font-family: Smythe,sans-serif;
 } 
 
 .restaurant-banner {
@@ -15,7 +16,6 @@ body {
     color: white;
     /* Typography */
     text-align: left;
-    font-family: Smythe,sans-serif;
     /*Formatting/Layout*/
     display: flex;
     flex-direction: column;
@@ -48,6 +48,7 @@ body {
 /*Menu Related Stuff*/
 
 main{
+    position: relative;
     margin: 0 auto;
     padding: 67px 46px 53px 46px;
     height: 994px;
@@ -63,16 +64,204 @@ main{
     height: 140px;
     border: none;
     border-bottom: 1px solid #D2D2D2 ;
+    display: flex;
+    column-gap: 31px;
 }
-.item-icon{
-    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "EmojiSymbols";
+
+.menu-item-image{
     width: 70px;
     height: 89px;
     opacity: 72%;
-    font-size: 78.72px;
+    
+}
+.menu-item-text {
+    display: flex;
+    flex-direction: column;
+}
+.menu-item-title{
+    width: 43px;
+    height: 17px;
+    font-size: 28px;
     font-weight: 400;
-    line-height: 98.4px;
-    display: inline;
+    line-height: 16.8px;
+    text-align: left;
+}
+
+.menu-item-description{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    margin: 8px 0;
+}
+.menu-item-price{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+
+
+}
+.menu-buttons {
+    display: flex;
+    column-gap: 15px;
+    margin-left: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu-button{
+    border: 1.5px solid #DEDEDE;
+    background-color: white;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Customer Order Stuff */
+
+.customer-order {
+    padding: 45px 46px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.customer-items{
+    border-bottom: 2px solid #393333;
+    padding-bottom: 31px;
+}
+.order-header{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 16.8px;
+    margin-bottom: 64px;
+}
+.order-item {
+    display: flex;
+    column-gap: 13px;
+    align-items: center;
+    margin: 22px auto 0px;
+}
+.order-item-name{
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+}
+.order-item-remove-btn{
+    width: 77px;
+    height: 22px;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    background-color: white;
+    border: none;
+    color: #BBBBBB;
+}
+.order-item-price{
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: right;
+
+}
+.order-total{
+    padding-top: 14px;
+    padding-bottom: 53px;
+    display: flex;
+}
+.complete-order-btn{
+    width: 100%;
+    height: 60px;
+    background-color: #16DB99;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px 0px #0000000D;
+    font-family: Verdana;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: white;
+}
+.show-order{
+    display:none;
+}
+
+#payment-modal{
+    width: 524px;
+    height: 555px;
+    border-radius: 3.89px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 13%;
+    margin: auto;
+    background-color: white;
+    padding-top: 47px;
+}
+.show-modal {
+    /* opacity: 0; */
+}
+#payment-form-header{
+    width: 304.37px;
+    height: 40.92px;
+    font-family: Verdana;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31.12px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 46px;
+
+}
+#payment-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.payment-input{
+    margin:0 auto 23px;
+    width: 475.91px;
+    height: 71.3px;
+    border-radius: 3.89px;
+    border: 1.3px solid #757575;
+    opacity: 0px;
+    font-family: Verdana;
+    color: #757575;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 31.12px;
+    text-align: left;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
     margin: 0;
+}
+
+.payment-input::placeholder{
+    padding-left:27px;
+}
+#pay-button{
+    width: 475.91px;
+    height: 71.3px;
+    margin: 23px 24px 2px;
 
 }

@@ -1,0 +1,122 @@
+import { menuArray as menuItems} from "./data.js"
+const menu = document.getElementsByClassName("menu-items")[0]
+const customerOrder = document.getElementsByClassName("customer-order")[0]
+const order = document.getElementsByClassName("customer-items")[0]
+const orderTotalPrice = document.getElementsByClassName("order-item-price")[0]
+const paymentButton = document.getElementById("complete-order-btn")
+
+
+let userOrder = new Map()
+
+document.addEventListener('click',function(event){
+    if(event.target.dataset.increment){
+        handleIncrement(event.target.dataset.increment)
+    }
+    else if(event.target.dataset.decrement){
+        handleDecrement(event.target.dataset.decrement)
+    }
+    else if (event.target.id === "complete-order-btn"){
+
+    }
+
+
+})
+function renderPayMenu(){
+    
+}
+
+
+
+function renderUserTotal(){
+    let total = 0
+    for (let [itemUUID,amount] of userOrder.entries()){
+        total += amount * menuItems.filter(function(menuItem){
+            return menuItem.UUID === itemUUID
+        })[0].price
+    }
+    orderTotalPrice.textContent = `$${total}`
+}
+
+
+function renderUserOrder(){
+    if (userOrder.size >= 1){
+        let orderItemsToRender = []
+        for (let [itemUUID,amount] of userOrder.entries()){
+            let item = menuItems.filter(function(menuItem){
+                return menuItem.UUID === itemUUID
+            })[0]
+            
+            const {name,ingredients,UUID,price,image} = item
+            let htmlString = `
+            <div class="order-item">
+                <span class="order-item-name">${name}</span>
+                <span class="order-item-name">x ${amount}</span>
+                <button class="order-item-remove-btn" data-remove="${UUID}">remove</button>
+                <span class="order-item-price">$${Number(price) * amount}</span>
+            </div>
+            `
+            orderItemsToRender.push(htmlString)     
+        }
+        console.log(order)
+        order.innerHTML = orderItemsToRender.join("")
+        customerOrder.classList.remove("show-order")    
+    }
+
+    else {
+        customerOrder.classList.add("show-order") 
+    }
+    
+
+}
+
+
+function handleIncrement(UUID){
+    if (userOrder.has(UUID)){
+        // Increment the count
+        let currentAmount = userOrder.get(UUID)
+        userOrder.set(UUID, currentAmount + 1)
+    }
+    else {
+        userOrder.set(UUID, 1)
+    }
+    renderUserOrder()
+    renderUserTotal()
+}
+function handleDecrement(UUID){
+    if (userOrder.has(UUID) && userOrder.get(UUID) != 1){
+        let currentAmount = userOrder.get(UUID)
+        userOrder.set(UUID, currentAmount - 1)
+    }
+    else if (userOrder.get(UUID) && userOrder.get(UUID) === 1){
+        userOrder.delete(UUID)
+    }
+    renderUserOrder()
+    renderUserTotal()
+}
+
+
+function renderMenu(){
+    /*Renders the menu items */
+    let itemsToAddToMenu = []
+
+    for(let menuItem of menuItems){
+        let menuItemHTML = `
+        <div class="menu-item">
+            <img src="${menuItem.image}" class="menu-item-image">
+            <div class="menu-item-text">
+                <span class="menu-item-title">${menuItem.name}</span>
+                <span class="menu-item-description">${(menuItem.ingredients.join(", "))}</span>
+                <span class="menu-item-price">$${menuItem.price}</span>
+            </div>
+            <div class="menu-buttons">
+                <button class="menu-button decrement-btn" data-decrement="${menuItem.UUID}">-</button>
+                <button class="menu-button increment-btn" data-increment="${menuItem.UUID}">+</button>
+            </div>
+
+        </div>`
+        itemsToAddToMenu.push(menuItemHTML)
+    }
+    menu.innerHTML = itemsToAddToMenu.join("")
+
+}
+renderMenu()
