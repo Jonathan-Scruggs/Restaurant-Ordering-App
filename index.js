@@ -9,6 +9,7 @@ const overlay = document.getElementById("overlay")
 
 let userOrder = new Map()
 paymentForm.addEventListener("submit",function(event){
+    /*Function that handles paymentForm submit */
     event.preventDefault()
     const paymentFormData = new FormData(paymentForm)
     let customerName = paymentFormData.get("name")
@@ -21,6 +22,7 @@ paymentForm.addEventListener("submit",function(event){
 })
 
 document.addEventListener('click',function(event){
+     /*Event Listener that monitors entire document for clicks*/
     if(event.target.dataset.increment){
         handleIncrement(event.target.dataset.increment)
     }
@@ -44,11 +46,13 @@ document.addEventListener('click',function(event){
 
 })
 function renderCompleteOrderMethod(customerName){
+    /*Function to render when the message to the customer when they have completed their order */
     document.getElementsByClassName("customer-order")[0].style.padding = "45px 0px"
     document.getElementsByClassName("customer-order")[0].innerHTML = `<div class="order-complete-message">Thanks, ${customerName}! Your order is on its way!</div>`
 }
 
 function closePaymentForm(){
+    /*Closes the payment form */
     paymentModal.classList.toggle("hide-modal")
     overlay.classList.toggle("hide-overlay")
     renderUserOrder()
@@ -57,6 +61,7 @@ function closePaymentForm(){
 
 
 function clearPaymentForm(){
+    /*Clears input field of form */
     paymentForm.reset()
 }
 
