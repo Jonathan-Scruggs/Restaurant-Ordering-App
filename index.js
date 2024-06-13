@@ -3,10 +3,22 @@ const menu = document.getElementsByClassName("menu-items")[0]
 const customerOrder = document.getElementsByClassName("customer-order")[0]
 const order = document.getElementsByClassName("customer-items")[0]
 const orderTotalPrice = document.getElementsByClassName("order-item-price")[0]
-const paymentButton = document.getElementById("complete-order-btn")
-
+const paymentModal = document.getElementById("payment-modal")
+const paymentForm = document.getElementById("payment-form")
+const overlay = document.getElementById("overlay")
 
 let userOrder = new Map()
+paymentForm.addEventListener("submit",function(event){
+    event.preventDefault()
+    const paymentFormData = new FormData(paymentForm)
+    let customerName = paymentFormData.get("name")
+    userOrder.clear()
+    
+    clearPaymentForm()
+    paymentModal.classList.toggle("hide-modal")
+    overlay.classList.toggle("hide-overlay")
+    renderCompleteOrderMethod(customerName)
+})
 
 document.addEventListener('click',function(event){
     if(event.target.dataset.increment){
@@ -16,15 +28,36 @@ document.addEventListener('click',function(event){
         handleDecrement(event.target.dataset.decrement)
     }
     else if (event.target.id === "complete-order-btn"){
-
+        renderPayMenu()
+    }
+    else if (event.target.id === "payment-form-exit-button"){
+        clearPaymentForm()
+        closePaymentForm()
     }
 
-
 })
-function renderPayMenu(){
-    
+function renderCompleteOrderMethod(customerName){
+    document.getElementsByClassName("customer-order")[0].style.padding = "45px 0px"
+    document.getElementsByClassName("customer-order")[0].innerHTML = `<div class="order-complete-message">Thanks, ${customerName}! Your order is on its way!</div>`
 }
 
+function closePaymentForm(){
+    paymentModal.classList.toggle("hide-modal")
+    overlay.classList.toggle("hide-overlay")
+    renderUserOrder()
+    clearPaymentForm()
+}
+
+
+function clearPaymentForm(){
+    paymentForm.reset()
+}
+
+
+function renderPayMenu(){
+    paymentModal.classList.toggle("hide-modal")
+    overlay.classList.toggle("hide-overlay")
+}
 
 
 function renderUserTotal(){
@@ -57,7 +90,6 @@ function renderUserOrder(){
             `
             orderItemsToRender.push(htmlString)     
         }
-        console.log(order)
         order.innerHTML = orderItemsToRender.join("")
         customerOrder.classList.remove("show-order")    
     }

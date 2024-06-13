@@ -14,20 +14,10 @@
             <h1 id="restaurant-name">Jordan’s Diner</h1>
             <h2 id="restaurant-slogan">The best burgers and pizzas in town.</h2>
         </header>
-        <main>
+        <main id="main">
             <!--This section is for Menu Items -->
             <section class="menu-items">
-                <!-- <div class="menu-item">
-                    <img src="images\pizza.png" class="menu-item-image">
-                    <div class="menu-item-text">
-                        <span class="menu-item-title">Pizza</span>
-                        <span class="menu-item-description">pepperoni,mushrom,mozarella</span>
-                        <span class="menu-item-price">$14</span>
-                    </div>
-                    <div class="menu-buttons">
-                        <button class="menu-button decrement-btn" >-</button>
-                        <button class="menu-button increment-btn">+</button>
-                    </div> -->
+                
             </section>
             <!--This section is for displaying the order-->
             <section class="customer-order show-order">
@@ -51,21 +41,18 @@
                 </div>    
                 <button class="complete-order-btn" id="complete-order-btn">Complete order</button>
             </section>
-            <div id="payment-modal" class="show-modal">
+            <div id="overlay" class="show-overlay hide-overlay"></div> 
+            <div id="payment-modal" class="show-modal hide-modal">
                 <span id="payment-form-header">Enter card details</span>
                 <form id="payment-form">
-                    <input type="text" id="name" name="name" class="payment-input" placeholder="Enter your name">
-                    <input type="number" id="card-number" name="card-number" class="payment-input" placeholder="Enter card number">
-                    <input type="number" id="card-cvv" name="card-cvv" class="payment-input" placeholder="Enter CVV">
+                    <button id="payment-form-exit-button">X</button>
+                    <input required type="text" id="name" name="name" class="payment-input" placeholder="Enter your name">
+                    <input  required type="number" id="card-number" name="card-number" class="payment-input" placeholder="Enter card number">
+                    <input  required type="number" id="card-cvv" name="card-cvv" class="payment-input" placeholder="Enter CVV">
                     <button id="pay-button">Pay</button>
                 </form>
             </div>
-
-
         </main>
-
-
-
 	    <script src="index.js" type="module">
         </script>
     </body>

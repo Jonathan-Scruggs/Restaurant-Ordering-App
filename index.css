@@ -46,13 +46,13 @@ body {
 
 
 /*Menu Related Stuff*/
-
 main{
     position: relative;
     margin: 0 auto;
     padding: 67px 46px 53px 46px;
     height: 994px;
     width: 600px;
+    opacity: 1;
 }
 .menu-items{
     display: flex;
@@ -202,7 +202,8 @@ main{
 }
 
 #payment-modal{
-    width: 524px;
+    /* width: 524px; */
+    position: relative;
     height: 555px;
     border-radius: 3.89px;
     display: flex;
@@ -215,7 +216,12 @@ main{
     padding-top: 47px;
 }
 .show-modal {
-    /* opacity: 0; */
+    opacity: 1; 
+    z-index: 4;
+}
+.hide-modal {
+    opacity: 0;
+    z-index: -5;
 }
 #payment-form-header{
     width: 304.37px;
@@ -231,6 +237,7 @@ main{
 
 }
 #payment-form{
+    
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -263,5 +270,49 @@ input[type=number]::-webkit-outer-spin-button {
     width: 475.91px;
     height: 71.3px;
     margin: 23px 24px 2px;
+    border-radius: 3.89px;
+    border: none;
+    color: white;
+    background-color: #16DB99;
+}
+
+#payment-form-exit-button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+}
+.show-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 3;
+}
+.hide-overlay {
+    z-index: -5;
+    opacity: 0;
+}
+.order-complete-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 504px;
+    margin: 0 auto;
+    height: 120px;
+    border-radius: 3px;
+    background-color: #ECFDF5;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #065F46;
 
 }
