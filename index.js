@@ -34,6 +34,12 @@ document.addEventListener('click',function(event){
         clearPaymentForm()
         closePaymentForm()
     }
+    else if (event.target.dataset.remove){
+        userOrder.delete(event.target.dataset.remove)
+        renderUserOrder()
+        renderUserTotal()
+
+    }
 
 })
 function renderCompleteOrderMethod(customerName){
