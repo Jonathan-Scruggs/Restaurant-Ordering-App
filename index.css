@@ -222,6 +222,7 @@ main{
 .hide-modal {
     opacity: 0;
     z-index: -5;
+ 
 }
 #payment-form-header{
     width: 304.37px;
@@ -298,6 +299,7 @@ input[type=number]::-webkit-outer-spin-button {
 .hide-overlay {
     z-index: -5;
     opacity: 0;
+    
 }
 .order-complete-message {
     display: flex;

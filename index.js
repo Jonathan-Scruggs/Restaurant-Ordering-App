@@ -31,6 +31,7 @@ document.addEventListener('click',function(event){
         renderPayMenu()
     }
     else if (event.target.id === "payment-form-exit-button"){
+        event.preventDefault() // To prevent validation
         clearPaymentForm()
         closePaymentForm()
     }
